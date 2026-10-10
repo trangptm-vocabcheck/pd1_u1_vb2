@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Học Liệu Dịch Thuật - Unit 1: Global Ageing</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-950 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3.5 flex flex-wrap justify-between items-center gap-3">
+      <div>
+        <h1 class="text-lg md:text-xl font-bold flex items-center gap-2">
+          <i data-lucide="book-marked" class="w-6 h-6 text-indigo-400"></i>
+          Dịch Thuật Chuyên Ngành: Unit 1 - Global Ageing
+        </h1>
+        <p class="text-xs text-indigo-300">Học từ vựng Flashcard & Luyện nghe dịch song song (British English 0.7x)</p>
+      </div>
+      <!-- Sinh viên Badge -->
+      <div id="userBadge" class="hidden text-xs bg-indigo-900/90 px-3.5 py-1.5 rounded-xl border border-indigo-700/80 flex items-center gap-2 shadow-inner">
+        <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+        <span id="badgeInfo" class="font-medium text-slate-100"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Khung nội dung chính -->
+  <main class="max-w-4xl mx-auto w-full px-4 py-8 flex-grow">
+
+    <!-- BƯỚC 1: NHẬP THÔNG TIN SINH VIÊN -->
+    <section id="studentInfoSection" class="bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 md:p-10 mb-8 transition-all">
+      <div class="max-w-md mx-auto">
+        <div class="text-center mb-6">
+          <div class="inline-flex p-3.5 bg-indigo-50 text-indigo-600 rounded-2xl mb-3 shadow-inner">
+            <i data-lucide="user-circle" class="w-8 h-8"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900">Thông Tin Sinh Viên</h2>
+          <p class="text-sm text-slate-500 mt-1">Vui lòng điền đúng thông tin để hệ thống ghi nhận kết quả lên Google Sheet của giảng viên.</p>
+        </div>
+
+        <form id="studentForm" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Họ và Tên *</label>
+            <input type="text" id="fullName" required placeholder="Ví dụ: Nguyễn Văn A" 
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-600 focus:outline-none text-sm transition">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Mã Sinh Viên *</label>
+              <input type="text" id="studentId" required placeholder="Ví dụ: 20210001" 
+                     class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-600 focus:outline-none text-sm transition">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Lớp Học Phần *</label>
+              <input type="text" id="className" required placeholder="Ví dụ: DTH01" 
+                     class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-600 focus:outline-none text-sm transition">
+            </div>
+          </div>
+          <button type="submit" class="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+            <span>Bắt Đầu Vào Học</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- NỘI DUNG HỌC TẬP CHÍNH -->
+    <div id="learningContent" class="hidden space-y-10">
+
+      <!-- PHẦN 1: FLASHCARDS (28 TỪ VỰNG) -->
+      <section id="flashcardSection" class="bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-5 border-b border-slate-100 gap-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-amber-100 text-amber-800 rounded-full">Phần 1</span>
+            <h2 class="text-xl font-bold text-slate-900 mt-1.5">Flashcards Thuật Ngữ Chuyên Ngành (28 thuật ngữ)</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Nhấp vào thẻ để lật xem định nghĩa. Nghe chuẩn giọng British English tốc độ 0.7x.</p>
+          </div>
+          <div class="text-right flex items-center md:flex-col justify-between">
+            <span class="text-xs font-medium text-slate-500">Tiến độ đã thuộc</span>
+            <span id="fcProgressText" class="text-base font-bold text-indigo-600">0 / 28 từ</span>
+          </div>
+        </div>
+
+        <!-- Thanh tiến độ hoàn thành Flashcard -->
+        <div class="w-full bg-slate-100 h-2.5 rounded-full mt-4 overflow-hidden">
+          <div id="fcProgressBar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
+        </div>
+
+        <!-- Thẻ Flashcard 3D -->
+        <div class="my-8 max-w-xl mx-auto perspective-1000">
+          <div id="flashcard" class="relative w-full h-84 md:h-80 cursor-pointer transform-style-3d transition-transform duration-500 shadow-md hover:shadow-lg rounded-2xl">
+            <!-- Mặt trước (Tiếng Anh + Định nghĩa) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-indigo-50/70 to-white border-2 border-indigo-200 rounded-2xl p-6 flex flex-col justify-between">
+              <div class="flex justify-between items-center text-xs font-medium text-indigo-600">
+                <span id="fcNumberBadge" class="bg-indigo-100 px-2.5 py-0.5 rounded-md font-semibold">Thuật ngữ 1/28</span>
+                <span class="flex items-center gap-1 text-slate-400"><i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Nhấp thẻ để lật</span>
+              </div>
+              <div class="text-center my-auto px-2">
+                <h3 id="fcTerm" class="text-2xl md:text-3xl font-extrabold text-indigo-950 mb-3 tracking-tight">Global ageing</h3>
+                <p id="fcDefinition" class="text-xs md:text-sm text-slate-600 italic leading-relaxed max-w-md mx-auto">
+                  The process in which the proportion of older people increases across the world.
+                </p>
+              </div>
+              <div class="flex justify-center">
+                <button id="fcSpeakBtn" type="button" class="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i> Phát âm (UK Natural 0.7x)
+                </button>
+              </div>
+            </div>
+
+            <!-- Mặt sau (Tiếng Việt) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-50/70 to-white border-2 border-emerald-300 rounded-2xl p-6 flex flex-col justify-between">
+              <div class="flex justify-between items-center text-xs font-medium text-emerald-700">
+                <span class="bg-emerald-100 px-2.5 py-0.5 rounded-md font-semibold">Nghĩa tiếng Việt</span>
+                <span class="flex items-center gap-1 text-slate-400"><i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i> Nhấp thẻ để lật lại</span>
+              </div>
+              <div class="text-center my-auto px-4">
+                <h3 id="fcMeaning" class="text-2xl md:text-3xl font-bold text-emerald-950 mb-2">Già hóa dân số toàn cầu</h3>
+              </div>
+              <div class="text-center text-xs text-slate-400">
+                Nhấn nút bên dưới để xác nhận bạn đã thuộc thuật ngữ này
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thanh điều khiển Flashcard -->
+        <div class="max-w-xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <button id="fcPrevBtn" class="flex items-center gap-1 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition disabled:opacity-40">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i> Trước
+          </button>
+          
+          <button id="fcMarkMasteredBtn" class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+            <span id="fcMasteredLabel">Đã Thuộc Từ Này</span>
+          </button>
+
+          <button id="fcNextBtn" class="flex items-center gap-1 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition disabled:opacity-40">
+            Tiếp <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div id="fcCompletionNotice" class="hidden mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center">
+          <p class="text-sm font-bold text-emerald-800 flex items-center justify-center gap-2">
+            <i data-lucide="sparkles" class="w-5 h-5 text-emerald-600"></i>
+            Tuyệt vời! Bạn đã hoàn thành 28/28 từ vựng. Phần 2 đã được mở khóa!
+          </p>
+        </div>
+      </section>
+
+      <!-- PHẦN 2: BÀI NGHE & THU ÂM DỊCH NÓI -->
+      <section id="listeningSection" class="relative bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 md:p-8">
+        
+        <!-- Khóa nếu chưa học xong Flashcard -->
+        <div id="lockOverlay" class="absolute inset-0 bg-white/95 backdrop-blur-sm z-30 rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+          <div class="p-4 bg-slate-100 rounded-2xl text-slate-400 mb-3">
+            <i data-lucide="lock" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Phần Luyện Nghe & Dịch Đang Bị Khóa</h3>
+          <p class="text-sm text-slate-500 max-w-sm mt-1">
+            Yêu cầu hoàn thành: Bạn cần học và đánh dấu <span class="font-bold text-indigo-600">"Đã thuộc" đủ 28/28 từ</span> ở Phần 1 để mở khóa bài tập này.
+          </p>
+        </div>
+
+        <!-- Nội dung phần 2 -->
+        <div>
+          <div class="pb-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Phần 2</span>
+              <h2 class="text-xl font-bold text-slate-900 mt-1.5">Luyện Nghe & Dịch Nối Tiếp (Consecutive Interpreting)</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Giọng Anh - Anh tự nhiên (0.7x). Tối đa 3 lần nghe/đoạn. Thu âm bản dịch tiếng Việt tương ứng.</p>
+            </div>
+            <div class="text-xs bg-slate-100 px-3.5 py-1.5 rounded-xl text-slate-600 font-medium">
+              Đoạn: <span id="currentSegNum" class="font-bold text-indigo-600 text-sm">1</span> / 7
+            </div>
+          </div>
+
+          <!-- Khung bài nghe phân đoạn -->
+          <div class="mt-6 bg-slate-50/80 rounded-2xl p-6 border border-slate-200">
+            <div class="flex items-center justify-between mb-3 text-xs">
+              <span class="font-bold text-indigo-950 uppercase tracking-wider">Đoạn văn bài nghe (<span id="segBadge">1</span>/7)</span>
+              <div class="flex items-center gap-1.5 font-medium" id="listenCountDisplay">
+                <span class="text-slate-500">Lượt nghe còn lại:</span>
+                <span id="listensLeft" class="px-2.5 py-0.5 rounded-md font-bold bg-indigo-100 text-indigo-700">3 / 3</span>
+              </div>
+            </div>
+
+            <p id="segmentText" class="text-base text-slate-800 leading-relaxed font-serif min-h-[75px]"></p>
+
+            <div class="mt-5 pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+              <button id="playAudioBtn" class="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold shadow-sm transition disabled:opacity-40">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+                <span>Nghe Phân Đoạn Này (Anh - Anh 0.7x)</span>
+              </button>
+              <span id="ttsStatus" class="text-xs text-slate-500 italic"></span>
+            </div>
+          </div>
+
+          <!-- Khung thu âm bài dịch -->
+          <div class="mt-6 p-6 rounded-2xl border-2 border-dashed border-indigo-200 bg-indigo-50/30">
+            <h4 class="text-sm font-bold text-indigo-950 flex items-center gap-2 mb-1.5">
+              <i data-lucide="mic" class="w-4 h-4 text-indigo-600"></i>
+              Ghi Âm Bản Dịch Tiếng Việt Của Bạn
+            </h4>
+            <p class="text-xs text-slate-600 mb-4">Sau khi nghe xong, hãy bấm "Bắt đầu thu âm", dịch to rõ ràng sang tiếng Việt và bấm "Dừng thu".</p>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="recordBtn" class="inline-flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-sm font-semibold transition shadow-sm">
+                <i data-lucide="circle-dot" class="w-4 h-4"></i>
+                <span id="recordLabel">Bắt đầu thu âm</span>
+              </button>
+              <div id="recordingIndicator" class="hidden items-center gap-2 text-rose-600 text-xs font-bold animate-pulse">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span> Đang thu âm...
+              </div>
+            </div>
+
+            <!-- Phát lại bài đã thu -->
+            <div id="audioPlaybackContainer" class="hidden mt-4 pt-3.5 border-t border-indigo-100">
+              <p class="text-xs font-semibold text-slate-600 mb-2">Bản dịch đã ghi âm của đoạn này:</p>
+              <audio id="audioPlayback" controls class="w-full h-10 rounded-lg"></audio>
+            </div>
+          </div>
+
+          <!-- Điều hướng phân đoạn -->
+          <div class="mt-8 flex justify-between items-center">
+            <button id="segPrevBtn" class="flex items-center gap-1.5 px-4 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition disabled:opacity-40">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i> Đoạn trước
+            </button>
+            <button id="segNextBtn" class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition">
+              Đoạn tiếp theo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- NÚT NỘP BÀI VÀ GỬI GOOGLE SHEETS -->
+          <div class="mt-10 pt-6 border-t border-slate-200 text-center">
+            <button id="submitAllBtn" class="w-full md:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white text-base font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 mx-auto disabled:opacity-50">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              <span>Hoàn Thành & Nộp Bài Lên Google Sheet</span>
+            </button>
+            <p id="submitStatus" class="text-xs mt-3 font-semibold"></p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    Học phần Dịch thuật &copy; British English Natural (0.7x) - Tích hợp GitHub Pages & Google Sheets
+  </footer>
+
+  <!-- TOÀN BỘ SCRIPT ĐIỀU KHIỂN -->
+  <script>
+    // ==========================================
+    // 1. CẤU HÌNH WEBHOOK GOOGLE SHEETS ĐÃ ĐIỀN SẴN URL CỦA BẠN
+    // ==========================================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_bIREsie7E1L5CqoLelP2nKJkIIGA7G--I6KLla-FmDhe8amEwn1z5n7gyhcuRBHt/exec";
+
+    // ==========================================
+    // 2. DỮ LIỆU TỪ VỰNG & PHÂN ĐOẠN BÀI NGHE
+    // ==========================================
+    const VOCABULARY = [
+      { id: 1, term: "Global ageing", meaning: "Già hóa dân số toàn cầu", def: "The process in which the proportion of older people increases across the world." },
+      { id: 2, term: "Demographics", meaning: "Nhân khẩu học; đặc điểm nhân khẩu học", def: "The characteristics of a population, such as age, gender, and size." },
+      { id: 3, term: "Demographer", meaning: "Nhà nhân khẩu học", def: "A person who studies populations, including their size, structure, and changes over time." },
+      { id: 4, term: "Population ageing", meaning: "Già hóa dân số", def: "The process in which older people make up an increasing proportion of a population." },
+      { id: 5, term: "Longevity", meaning: "Tuổi thọ; sự sống thọ", def: "The fact or ability of living for a long time." },
+      { id: 6, term: "Life expectancy", meaning: "Tuổi thọ trung bình", def: "The average number of years a person is expected to live under current mortality conditions." },
+      { id: 7, term: "Age structure", meaning: "Cơ cấu độ tuổi dân số", def: "The distribution of a population across different age groups." },
+      { id: 8, term: "Age group", meaning: "Nhóm tuổi", def: "A group of people who fall within a particular age range." },
+      { id: 9, term: "Older adults", meaning: "Người cao tuổi", def: "People who are in the later stages of life, often defined as those aged 60 or 65 and over." },
+      { id: 10, term: "Ageing population", meaning: "Dân số già; dân số đang già hóa", def: "A population in which the proportion of older people is increasing." },
+      { id: 11, term: "Ageing society", meaning: "Xã hội già hóa", def: "A society in which older people account for an increasing share of the population." },
+      { id: 12, term: "Birth rate", meaning: "Tỷ suất sinh; tỷ lệ sinh", def: "The number of live births per 1,000 people in a population in one year." },
+      { id: 13, term: "Generation", meaning: "Thế hệ", def: "A group of people born around the same period who often share similar social or historical experiences." },
+      { id: 14, term: "Millennials (Gen Y)", meaning: "Thế hệ Millennials (thế hệ Y)", def: "People born approximately between 1981 and 1996, who grew up during the development of the internet and digital technology." },
+      { id: 15, term: "Generation X (Gen X)", meaning: "Thế hệ X", def: "People born approximately between 1965 and 1980, who experienced the transition from a largely analogue world to a digital one." },
+      { id: 16, term: "Baby boomers", meaning: "Thế hệ bùng nổ trẻ sơ sinh (Baby Boomers)", def: "People born approximately between 1946 and 1964, during the period of high birth rates following World War II." },
+      { id: 17, term: "Workforce / Labour force", meaning: "Lực lượng lao động", def: "People who are working or available for work." },
+      { id: 18, term: "Five-generation workforce", meaning: "Lực lượng lao động gồm năm thế hệ", def: "A workforce that includes employees from five different generations." },
+      { id: 19, term: "Older workers", meaning: "Người lao động lớn tuổi", def: "Employees who are in the later stages of their working lives." },
+      { id: 20, term: "Working-age population", meaning: "Dân số trong độ tuổi lao động", def: "The part of a population that falls within the age range defined as working age." },
+      { id: 21, term: "Retirement age", meaning: "Tuổi nghỉ hưu", def: "The age at which a person is expected or legally entitled to retire from work." },
+      { id: 22, term: "Retirement", meaning: "Sự nghỉ hưu; việc nghỉ hưu", def: "The act of leaving employment, usually after reaching a certain age or completing a working career." },
+      { id: 23, term: "Age diversity", meaning: "Sự đa dạng về độ tuổi", def: "The presence of people from different age groups within a group or organization." },
+      { id: 24, term: "Age-diverse workforce", meaning: "Lực lượng lao động đa dạng về độ tuổi", def: "A workforce made up of employees from different age groups." },
+      { id: 25, term: "Ageism", meaning: "Sự phân biệt đối xử dựa trên tuổi tác", def: "Stereotypes, prejudice, or discrimination against people because of their age." },
+      { id: 26, term: "Age cohort", meaning: "Nhóm dân số cùng độ tuổi; nhóm tuổi", def: "A group of people who were born during the same period or share a similar age range." },
+      { id: 27, term: "Middle age", meaning: "Tuổi trung niên", def: "The period of life between young adulthood and old age." },
+      { id: 28, term: "Productive ageing", meaning: "Già hóa năng động và có đóng góp; già hóa theo hướng phát huy năng suất", def: "The process of remaining active and making meaningful contributions to society as people grow older." }
+    ];
+
+    const SEGMENTS = [
+      {
+        id: 1,
+        text: "Imagine working in a company where your youngest colleague is 22, while your oldest colleague is 68. They may use different communication tools, have different working habits, and hold different ideas about what makes a good employee. Can they work well together?"
+      },
+      {
+        id: 2,
+        text: "Today, many companies have an age-diverse workforce, sometimes including employees from five different generations. Baby boomers, Generation X, Millennials, and younger generations may have different expectations about work, technology, and career development."
+      },
+      {
+        id: 3,
+        text: "For example, younger employees may prefer quick messages and online meetings, while older workers may feel more comfortable with face-to-face discussions. Some young people may value flexible working hours, whereas their older colleagues may place greater importance on job stability."
+      },
+      {
+        id: 4,
+        text: "These differences can sometimes lead to misunderstandings. A manager might think that an older employee is unwilling to learn new technology. At the same time, a younger employee may feel that their ideas are not taken seriously because of their limited work experience. Such situations can create ageism and damage teamwork."
+      },
+      {
+        id: 5,
+        text: "However, a five-generation workforce also offers important advantages. Younger employees can share their digital skills, while older workers can offer professional knowledge and practical experience. When people learn from one another, they can solve problems more effectively and develop new ideas."
+      },
+      {
+        id: 6,
+        text: "So, what should companies do? First, they should provide equal opportunities for training and promotion. Second, they can organize mentoring activities in which employees from different generations exchange skills and knowledge."
+      },
+      {
+        id: 7,
+        text: "Most importantly, managers should judge employees by their abilities and performance, not by their age. In conclusion, age differences do not have to divide a workplace. With mutual respect and open communication, people of different generations can turn their differences into strengths."
+      }
+    ];
+
+    // ==========================================
+    // 3. BIẾN TRẠNG THÁI (STATE)
+    // ==========================================
+    let studentData = { fullName: "", studentId: "", className: "" };
+    let fcCurrentIndex = 0;
+    let fcFlipped = false;
+    let fcMastered = new Set();
+
+    let segCurrentIndex = 0;
+    let segListensRemaining = { 1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3 };
+    let segRecordings = {}; 
+
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+
+    // ==========================================
+    // 4. BỘ ĐỌC GIỌNG ANH - ANH TỰ NHIÊN (0.7x)
+    // ==========================================
+    let naturalBritishVoice = null;
+
+    function getBestBritishVoice() {
+      if (!('speechSynthesis' in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      
+      // Thứ tự ưu tiên giọng Anh - Anh tự nhiên cao nhất
+      let found = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && (v.name.includes('Natural') || v.name.includes('Online')));
+      if (found) return found;
+
+      found = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && v.name.includes('Google'));
+      if (found) return found;
+
+      found = voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB');
+      if (found) return found;
+
+      found = voices.find(v => v.name.includes('UK') || v.name.includes('United Kingdom') || v.name.includes('British'));
+      if (found) return found;
+
+      return voices.find(v => v.lang.startsWith('en')) || null;
+    }
+
+    function initVoices() {
+      naturalBritishVoice = getBestBritishVoice();
+    }
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = initVoices;
+      initVoices();
+    }
+
+    function speakText(text, onEndCallback) {
+      if (!('speechSynthesis' in window)) {
+        alert("Trình duyệt không hỗ trợ Web Speech API. Hãy sử dụng Google Chrome hoặc Microsoft Edge.");
+        if (onEndCallback) onEndCallback();
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      if (!naturalBritishVoice) initVoices();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      if (naturalBritishVoice) utterance.voice = naturalBritishVoice;
+      utterance.lang = 'en-GB';
+      utterance.rate = 0.7; // TỐC ĐỘ 0.7x
+      utterance.pitch = 1.0;
+
+      utterance.onend = () => { if (onEndCallback) onEndCallback(); };
+      utterance.onerror = () => { if (onEndCallback) onEndCallback(); };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // ==========================================
+    // 5. KHỞI TẠO VÀ BẮT SỰ KIỆN GIAO DIỆN
+    // ==========================================
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      // Submit Form thông tin sinh viên
+      document.getElementById("studentForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        studentData.fullName = document.getElementById("fullName").value.trim();
+        studentData.studentId = document.getElementById("studentId").value.trim();
+        studentData.className = document.getElementById("className").value.trim();
+
+        document.getElementById("studentInfoSection").classList.add("hidden");
+        document.getElementById("learningContent").classList.remove("hidden");
+        document.getElementById("userBadge").classList.remove("hidden");
+        document.getElementById("badgeInfo").textContent = `${studentData.fullName} (${studentData.studentId} - ${studentData.className})`;
+
+        renderFlashcard();
+        renderSegment();
+      });
+
+      // Lật thẻ Flashcard
+      const fcCard = document.getElementById("flashcard");
+      fcCard.addEventListener("click", (e) => {
+        if (e.target.closest("#fcSpeakBtn")) return;
+        fcFlipped = !fcFlipped;
+        fcCard.classList.toggle("rotate-y-180", fcFlipped);
+      });
+
+      // Nút phát âm Flashcard
+      document.getElementById("fcSpeakBtn").addEventListener("click", (e) => {
+        e.stopPropagation();
+        speakText(VOCABULARY[fcCurrentIndex].term);
+      });
+
+      // Nút chuyển từ Flashcard
+      document.getElementById("fcPrevBtn").addEventListener("click", () => {
+        if (fcCurrentIndex > 0) {
+          fcCurrentIndex--;
+          fcFlipped = false;
+          renderFlashcard();
+        }
+      });
+
+      document.getElementById("fcNextBtn").addEventListener("click", () => {
+        if (fcCurrentIndex < VOCABULARY.length - 1) {
+          fcCurrentIndex++;
+          fcFlipped = false;
+          renderFlashcard();
+        }
+      });
+
+      // Đánh dấu đã thuộc từ
+      document.getElementById("fcMarkMasteredBtn").addEventListener("click", () => {
+        const id = VOCABULARY[fcCurrentIndex].id;
+        if (fcMastered.has(id)) {
+          fcMastered.delete(id);
+        } else {
+          fcMastered.add(id);
+        }
+        renderFlashcard();
+        checkUnlockCondition();
+      });
+
+      // Nút chuyển phân đoạn bài nghe
+      document.getElementById("segPrevBtn").addEventListener("click", () => {
+        if (segCurrentIndex > 0) {
+          segCurrentIndex--;
+          renderSegment();
+        }
+      });
+
+      document.getElementById("segNextBtn").addEventListener("click", () => {
+        if (segCurrentIndex < SEGMENTS.length - 1) {
+          segCurrentIndex++;
+          renderSegment();
+        }
+      });
+
+      // Nút nghe phân đoạn (tối đa 3 lần)
+      const playBtn = document.getElementById("playAudioBtn");
+      playBtn.addEventListener("click", () => {
+        const seg = SEGMENTS[segCurrentIndex];
+        if (segListensRemaining[seg.id] <= 0) {
+          alert("Bạn đã nghe tối đa 3 lần cho đoạn này!");
+          return;
+        }
+
+        playBtn.disabled = true;
+        document.getElementById("ttsStatus").textContent = "Đang phát giọng đọc Anh - Anh (0.7x)...";
+
+        speakText(seg.text, () => {
+          segListensRemaining[seg.id]--;
+          playBtn.disabled = false;
+          document.getElementById("ttsStatus").textContent = "";
+          renderSegmentListeningStatus();
+        });
+      });
+
+      // Thiết lập bộ thu âm bài dịch
+      setupAudioRecording();
+
+      // Nộp bài
+      document.getElementById("submitAllBtn").addEventListener("click", submitResultsToGoogleSheets);
+    });
+
+    // ==========================================
+    // 6. XỬ LÝ RENDER FLASHCARD
+    // ==========================================
+    function renderFlashcard() {
+      const cur = VOCABULARY[fcCurrentIndex];
+      const card = document.getElementById("flashcard");
+      card.classList.toggle("rotate-y-180", fcFlipped);
+
+      document.getElementById("fcNumberBadge").textContent = `Thuật ngữ ${cur.id}/28`;
+      document.getElementById("fcTerm").textContent = cur.term;
+      document.getElementById("fcDefinition").textContent = cur.def;
+      document.getElementById("fcMeaning").textContent = cur.meaning;
+
+      document.getElementById("fcPrevBtn").disabled = (fcCurrentIndex === 0);
+      document.getElementById("fcNextBtn").disabled = (fcCurrentIndex === VOCABULARY.length - 1);
+
+      const isDone = fcMastered.has(cur.id);
+      const masterBtn = document.getElementById("fcMarkMasteredBtn");
+      const masterLabel = document.getElementById("fcMasteredLabel");
+
+      if (isDone) {
+        masterBtn.className = "flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold shadow-sm transition";
+        masterLabel.textContent = "Đã Thuộc ✓ (Bấm hủy)";
+      } else {
+        masterBtn.className = "flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition";
+        masterLabel.textContent = "Đánh Dấu Đã Thuộc";
+      }
+
+      const count = fcMastered.size;
+      document.getElementById("fcProgressText").textContent = `${count} / 28 từ`;
+      document.getElementById("fcProgressBar").style.width = `${(count / VOCABULARY.length) * 100}%`;
+      lucide.createIcons();
+    }
+
+    function checkUnlockCondition() {
+      const isComplete = (fcMastered.size === VOCABULARY.length);
+      const lockOverlay = document.getElementById("lockOverlay");
+      const notice = document.getElementById("fcCompletionNotice");
+
+      if (isComplete) {
+        lockOverlay.classList.add("hidden");
+        notice.classList.remove("hidden");
+      } else {
+        lockOverlay.classList.remove("hidden");
+        notice.classList.add("hidden");
+      }
+    }
+
+    // ==========================================
+    // 7. XỬ LÝ RENDER BÀI NGHE & BẢN DỊCH
+    // ==========================================
+    function renderSegment() {
+      const curSeg = SEGMENTS[segCurrentIndex];
+      document.getElementById("currentSegNum").textContent = curSeg.id;
+      document.getElementById("segBadge").textContent = curSeg.id;
+      document.getElementById("segmentText").textContent = curSeg.text;
+
+      document.getElementById("segPrevBtn").disabled = (segCurrentIndex === 0);
+      document.getElementById("segNextBtn").disabled = (segCurrentIndex === SEGMENTS.length - 1);
+
+      renderSegmentListeningStatus();
+      renderAudioPlayer();
+      lucide.createIcons();
+    }
+
+    function renderSegmentListeningStatus() {
+      const curSeg = SEGMENTS[segCurrentIndex];
+      const remaining = segListensRemaining[curSeg.id];
+      const label = document.getElementById("listensLeft");
+      label.textContent = `${remaining} / 3`;
+
+      if (remaining === 0) {
+        label.className = "px-2.5 py-0.5 rounded-md font-bold bg-rose-100 text-rose-700";
+        document.getElementById("playAudioBtn").disabled = true;
+      } else {
+        label.className = "px-2.5 py-0.5 rounded-md font-bold bg-indigo-100 text-indigo-700";
+        document.getElementById("playAudioBtn").disabled = false;
+      }
+    }
+
+    function renderAudioPlayer() {
+      const curSeg = SEGMENTS[segCurrentIndex];
+      const container = document.getElementById("audioPlaybackContainer");
+      const player = document.getElementById("audioPlayback");
+
+      if (segRecordings[curSeg.id]) {
+        player.src = segRecordings[curSeg.id].url;
+        container.classList.remove("hidden");
+      } else {
+        player.src = "";
+        container.classList.add("hidden");
+      }
+    }
+
+    // ==========================================
+    // 8. BỘ THU ÂM (MEDIA RECORDER)
+    // ==========================================
+    async function setupAudioRecording() {
+      const recordBtn = document.getElementById("recordBtn");
+      const recordLabel = document.getElementById("recordLabel");
+      const indicator = document.getElementById("recordingIndicator");
+
+      recordBtn.addEventListener("click", async () => {
+        if (!isRecording) {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+
+            mediaRecorder.ondataavailable = (e) => {
+              if (e.data.size > 0) audioChunks.push(e.data);
+            };
+
+            mediaRecorder.onstop = () => {
+              const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+              const audioUrl = URL.createObjectURL(audioBlob);
+              const curSeg = SEGMENTS[segCurrentIndex];
+              segRecordings[curSeg.id] = { blob: audioBlob, url: audioUrl };
+              renderAudioPlayer();
+            };
+
+            mediaRecorder.start();
+            isRecording = true;
+            recordBtn.className = "inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-sm font-semibold transition shadow-sm";
+            recordLabel.textContent = "Dừng thu âm";
+            indicator.classList.remove("hidden");
+            indicator.classList.add("flex");
+          } catch (err) {
+            alert("Trình duyệt không được cấp quyền Microphone! Vui lòng cho phép truy cập micro để làm bài dịch.");
+          }
+        } else {
+          mediaRecorder.stop();
+          mediaRecorder.stream.getTracks().forEach(track => track.stop());
+          isRecording = false;
+          recordBtn.className = "inline-flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-sm font-semibold transition shadow-sm";
+          recordLabel.textContent = "Thu âm lại";
+          indicator.classList.add("hidden");
+          indicator.classList.remove("flex");
+        }
+      });
+    }
+
+    // ==========================================
+    // 9. NỘP KẾT QUẢ VỀ GOOGLE SHEETS
+    // ==========================================
+    async function submitResultsToGoogleSheets() {
+      const submitStatus = document.getElementById("submitStatus");
+      const submitBtn = document.getElementById("submitAllBtn");
+      const recordedCount = Object.keys(segRecordings).length;
+
+      if (!studentData.studentId) {
+        alert("Chưa có thông tin sinh viên!");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitStatus.textContent = "Đang gửi dữ liệu bài nộp lên Google Sheet...";
+      submitStatus.className = "text-xs mt-3 font-semibold text-indigo-600";
+
+      const payload = {
+        timestamp: new Date().toLocaleString("vi-VN"),
+        fullName: studentData.fullName,
+        studentId: studentData.studentId,
+        className: studentData.className,
+        flashcardsCompleted: (fcMastered.size === VOCABULARY.length),
+        recordedSegmentsCount: recordedCount,
+        isFullyCompleted: (fcMastered.size === VOCABULARY.length && recordedCount >= 7)
+      };
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        submitStatus.textContent = "✓ Đã nộp bài thành công! Giảng viên đã nhận được kết quả của bạn trên Google Sheet.";
+        submitStatus.className = "text-xs mt-3 font-semibold text-emerald-600";
+        alert("Chúc mừng bạn đã hoàn thành và nộp bài thành công!");
+      } catch (err) {
+        submitStatus.textContent = "Lỗi khi kết nối đến máy chủ! Vui lòng thử lại.";
+        submitStatus.className = "text-xs mt-3 font-semibold text-rose-600";
+        submitBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
