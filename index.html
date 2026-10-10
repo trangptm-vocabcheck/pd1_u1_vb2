@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Học Liệu Dịch Thuật - Unit 1: Global Ageing</title>
+  <title>Luyện Dịch Nối Tiếp - Unit 1: Global Ageing</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -22,10 +22,10 @@
     <div class="max-w-5xl mx-auto px-4 py-3.5 flex flex-wrap justify-between items-center gap-3">
       <div>
         <h1 class="text-lg md:text-xl font-bold flex items-center gap-2">
-          <i data-lucide="book-marked" class="w-6 h-6 text-indigo-400"></i>
+          <i data-lucide="headphones" class="w-6 h-6 text-indigo-400"></i>
           Dịch Thuật Chuyên Ngành: Unit 1 - Global Ageing
         </h1>
-        <p class="text-xs text-indigo-300">Học từ vựng Flashcard & Luyện nghe dịch song song (British English 0.7x)</p>
+        <p class="text-xs text-indigo-300">Flashcard thuật ngữ & Luyện nghe ghi chú dịch nối tiếp (Giọng Nam UK 0.7x)</p>
       </div>
       <!-- Sinh viên Badge -->
       <div id="userBadge" class="hidden text-xs bg-indigo-900/90 px-3.5 py-1.5 rounded-xl border border-indigo-700/80 flex items-center gap-2 shadow-inner">
@@ -46,7 +46,7 @@
             <i data-lucide="user-circle" class="w-8 h-8"></i>
           </div>
           <h2 class="text-2xl font-bold text-slate-900">Thông Tin Sinh Viên</h2>
-          <p class="text-sm text-slate-500 mt-1">Vui lòng điền đúng thông tin để hệ thống ghi nhận kết quả lên Google Sheet của giảng viên.</p>
+          <p class="text-sm text-slate-500 mt-1">Vui lòng điền thông tin để hệ thống ghi nhận kết quả lên Google Sheet của giảng viên.</p>
         </div>
 
         <form id="studentForm" class="space-y-4">
@@ -84,7 +84,7 @@
           <div>
             <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-amber-100 text-amber-800 rounded-full">Phần 1</span>
             <h2 class="text-xl font-bold text-slate-900 mt-1.5">Flashcards Thuật Ngữ Chuyên Ngành (28 thuật ngữ)</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Nhấp vào thẻ để lật xem định nghĩa. Nghe chuẩn giọng British English tốc độ 0.7x.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Nhấp vào thẻ để lật xem định nghĩa. Nghe phát âm chuẩn giọng Nam UK tốc độ 0.7x.</p>
           </div>
           <div class="text-right flex items-center md:flex-col justify-between">
             <span class="text-xs font-medium text-slate-500">Tiến độ đã thuộc</span>
@@ -92,7 +92,7 @@
           </div>
         </div>
 
-        <!-- Thanh tiến độ hoàn thành Flashcard -->
+        <!-- Thanh tiến độ -->
         <div class="w-full bg-slate-100 h-2.5 rounded-full mt-4 overflow-hidden">
           <div id="fcProgressBar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
         </div>
@@ -100,7 +100,7 @@
         <!-- Thẻ Flashcard 3D -->
         <div class="my-8 max-w-xl mx-auto perspective-1000">
           <div id="flashcard" class="relative w-full h-84 md:h-80 cursor-pointer transform-style-3d transition-transform duration-500 shadow-md hover:shadow-lg rounded-2xl">
-            <!-- Mặt trước (Tiếng Anh + Định nghĩa) -->
+            <!-- Mặt trước -->
             <div class="absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br from-indigo-50/70 to-white border-2 border-indigo-200 rounded-2xl p-6 flex flex-col justify-between">
               <div class="flex justify-between items-center text-xs font-medium text-indigo-600">
                 <span id="fcNumberBadge" class="bg-indigo-100 px-2.5 py-0.5 rounded-md font-semibold">Thuật ngữ 1/28</span>
@@ -114,12 +114,12 @@
               </div>
               <div class="flex justify-center">
                 <button id="fcSpeakBtn" type="button" class="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-sm transition">
-                  <i data-lucide="volume-2" class="w-4 h-4"></i> Phát âm (UK Natural 0.7x)
+                  <i data-lucide="volume-2" class="w-4 h-4"></i> Phát âm (Nam UK 0.7x)
                 </button>
               </div>
             </div>
 
-            <!-- Mặt sau (Tiếng Việt) -->
+            <!-- Mặt sau -->
             <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-50/70 to-white border-2 border-emerald-300 rounded-2xl p-6 flex flex-col justify-between">
               <div class="flex justify-between items-center text-xs font-medium text-emerald-700">
                 <span class="bg-emerald-100 px-2.5 py-0.5 rounded-md font-semibold">Nghĩa tiếng Việt</span>
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-        <!-- Thanh điều khiển Flashcard -->
+        <!-- Điều hướng Flashcard -->
         <div class="max-w-xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <button id="fcPrevBtn" class="flex items-center gap-1 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition disabled:opacity-40">
             <i data-lucide="chevron-left" class="w-4 h-4"></i> Trước
@@ -154,57 +154,80 @@
         <div id="fcCompletionNotice" class="hidden mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center">
           <p class="text-sm font-bold text-emerald-800 flex items-center justify-center gap-2">
             <i data-lucide="sparkles" class="w-5 h-5 text-emerald-600"></i>
-            Tuyệt vời! Bạn đã hoàn thành 28/28 từ vựng. Phần 2 đã được mở khóa!
+            Tuyệt vời! Bạn đã hoàn thành 28/28 từ vựng. Phần Nghe Ghi Chú & Dịch đã được mở khóa!
           </p>
         </div>
       </section>
 
-      <!-- PHẦN 2: BÀI NGHE & THU ÂM DỊCH NÓI -->
+      <!-- PHẦN 2: BÀI NGHE ẨN SCRIPT & THU ÂM DỊCH NÓI -->
       <section id="listeningSection" class="relative bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 md:p-8">
         
-        <!-- Khóa nếu chưa học xong Flashcard -->
+        <!-- Khóa overlay -->
         <div id="lockOverlay" class="absolute inset-0 bg-white/95 backdrop-blur-sm z-30 rounded-3xl flex flex-col items-center justify-center p-6 text-center">
           <div class="p-4 bg-slate-100 rounded-2xl text-slate-400 mb-3">
             <i data-lucide="lock" class="w-10 h-10"></i>
           </div>
           <h3 class="text-lg font-bold text-slate-800">Phần Luyện Nghe & Dịch Đang Bị Khóa</h3>
           <p class="text-sm text-slate-500 max-w-sm mt-1">
-            Yêu cầu hoàn thành: Bạn cần học và đánh dấu <span class="font-bold text-indigo-600">"Đã thuộc" đủ 28/28 từ</span> ở Phần 1 để mở khóa bài tập này.
+            Yêu cầu: Học và đánh dấu <span class="font-bold text-indigo-600">"Đã thuộc" đủ 28/28 từ</span> ở Phần 1 để mở khóa phần này.
           </p>
         </div>
 
-        <!-- Nội dung phần 2 -->
+        <!-- Khung luyện dịch -->
         <div>
           <div class="pb-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-2">
             <div>
               <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full">Phần 2</span>
               <h2 class="text-xl font-bold text-slate-900 mt-1.5">Luyện Nghe & Dịch Nối Tiếp (Consecutive Interpreting)</h2>
-              <p class="text-xs text-slate-500 mt-0.5">Giọng Anh - Anh tự nhiên (0.7x). Tối đa 3 lần nghe/đoạn. Thu âm bản dịch tiếng Việt tương ứng.</p>
+              <p class="text-xs text-slate-500 mt-0.5">Văn bản được ẩn hoàn toàn để mô phỏng dịch thực tế. Nghe (tối đa 3 lần), take note và ghi âm bản dịch.</p>
             </div>
             <div class="text-xs bg-slate-100 px-3.5 py-1.5 rounded-xl text-slate-600 font-medium">
               Đoạn: <span id="currentSegNum" class="font-bold text-indigo-600 text-sm">1</span> / 7
             </div>
           </div>
 
-          <!-- Khung bài nghe phân đoạn -->
-          <div class="mt-6 bg-slate-50/80 rounded-2xl p-6 border border-slate-200">
-            <div class="flex items-center justify-between mb-3 text-xs">
-              <span class="font-bold text-indigo-950 uppercase tracking-wider">Đoạn văn bài nghe (<span id="segBadge">1</span>/7)</span>
+          <!-- Khung Audio Player ẨN SCRIPT -->
+          <div class="mt-6 bg-slate-50/90 rounded-2xl p-6 border border-slate-200">
+            <div class="flex items-center justify-between mb-4 text-xs">
+              <span class="font-bold text-indigo-950 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="volume-2" class="w-4 h-4 text-indigo-600"></i>
+                Phân đoạn nghe <span id="segBadge">1</span> / 7
+              </span>
               <div class="flex items-center gap-1.5 font-medium" id="listenCountDisplay">
                 <span class="text-slate-500">Lượt nghe còn lại:</span>
                 <span id="listensLeft" class="px-2.5 py-0.5 rounded-md font-bold bg-indigo-100 text-indigo-700">3 / 3</span>
               </div>
             </div>
 
-            <p id="segmentText" class="text-base text-slate-800 leading-relaxed font-serif min-h-[75px]"></p>
+            <!-- Giao diện ẩn text script -->
+            <div class="bg-indigo-950/5 border border-dashed border-indigo-200 rounded-xl p-5 text-center my-3">
+              <div class="inline-flex p-3 bg-indigo-100 text-indigo-700 rounded-full mb-2">
+                <i data-lucide="eye-off" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-sm font-semibold text-slate-800">Văn bản bài nghe được ẩn</h4>
+              <p class="text-xs text-slate-500 max-w-md mx-auto mt-1">
+                Người học không đọc văn bản. Hãy bấm nghe, kết hợp ghi chép nhanh (take note) các ý chính và thuật ngữ để chuẩn bị bản dịch.
+              </p>
+            </div>
 
-            <div class="mt-5 pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
-              <button id="playAudioBtn" class="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold shadow-sm transition disabled:opacity-40">
-                <i data-lucide="volume-2" class="w-4 h-4"></i>
-                <span>Nghe Phân Đoạn Này (Anh - Anh 0.7x)</span>
+            <!-- Nút bấm nghe -->
+            <div class="mt-5 pt-3 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+              <button id="playAudioBtn" class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold shadow-sm transition disabled:opacity-40">
+                <i data-lucide="play" class="w-4 h-4"></i>
+                <span>Nghe Đoạn Này (Giọng Nam UK 0.7x)</span>
               </button>
               <span id="ttsStatus" class="text-xs text-slate-500 italic"></span>
             </div>
+          </div>
+
+          <!-- Khung Take Notes của người học -->
+          <div class="mt-4 bg-amber-50/50 rounded-2xl p-5 border border-amber-200/70">
+            <label for="takeNotesArea" class="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5 mb-2">
+              <i data-lucide="file-edit" class="w-4 h-4 text-amber-600"></i>
+              Vùng Ghi Chú Của Người Học (Take Notes)
+            </label>
+            <textarea id="takeNotesArea" rows="3" placeholder="Ghi chú nhanh số liệu, mốc năm, từ khóa chính khi nghe..." 
+                      class="w-full p-3 rounded-xl border border-amber-300/80 focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm bg-white"></textarea>
           </div>
 
           <!-- Khung thu âm bài dịch -->
@@ -213,7 +236,7 @@
               <i data-lucide="mic" class="w-4 h-4 text-indigo-600"></i>
               Ghi Âm Bản Dịch Tiếng Việt Của Bạn
             </h4>
-            <p class="text-xs text-slate-600 mb-4">Sau khi nghe xong, hãy bấm "Bắt đầu thu âm", dịch to rõ ràng sang tiếng Việt và bấm "Dừng thu".</p>
+            <p class="text-xs text-slate-600 mb-4">Sau khi nghe xong, hãy bấm "Bắt đầu thu âm", nói bản dịch tiếng Việt rõ ràng và bấm "Dừng thu".</p>
 
             <div class="flex flex-wrap items-center gap-3">
               <button id="recordBtn" class="inline-flex items-center gap-2 px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-sm font-semibold transition shadow-sm">
@@ -227,7 +250,7 @@
 
             <!-- Phát lại bài đã thu -->
             <div id="audioPlaybackContainer" class="hidden mt-4 pt-3.5 border-t border-indigo-100">
-              <p class="text-xs font-semibold text-slate-600 mb-2">Bản dịch đã ghi âm của đoạn này:</p>
+              <p class="text-xs font-semibold text-slate-600 mb-2">Bản dịch đã ghi âm của phân đoạn này:</p>
               <audio id="audioPlayback" controls class="w-full h-10 rounded-lg"></audio>
             </div>
           </div>
@@ -258,18 +281,18 @@
   </main>
 
   <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-    Học phần Dịch thuật &copy; British English Natural (0.7x) - Tích hợp GitHub Pages & Google Sheets
+    Học phần Dịch thuật &copy; British English Male (0.7x) - Tích hợp GitHub Pages & Google Sheets
   </footer>
 
-  <!-- TOÀN BỘ SCRIPT ĐIỀU KHIỂN -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
     // ==========================================
-    // 1. CẤU HÌNH WEBHOOK GOOGLE SHEETS ĐÃ ĐIỀN SẴN URL CỦA BẠN
+    // 1. CẤU HÌNH WEBHOOK GOOGLE SHEETS
     // ==========================================
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_bIREsie7E1L5CqoLelP2nKJkIIGA7G--I6KLla-FmDhe8amEwn1z5n7gyhcuRBHt/exec";
 
     // ==========================================
-    // 2. DỮ LIỆU TỪ VỰNG & PHÂN ĐOẠN BÀI NGHE
+    // 2. DỮ LIỆU BÀI HỌC
     // ==========================================
     const VOCABULARY = [
       { id: 1, term: "Global ageing", meaning: "Già hóa dân số toàn cầu", def: "The process in which the proportion of older people increases across the world." },
@@ -334,7 +357,7 @@
     ];
 
     // ==========================================
-    // 3. BIẾN TRẠNG THÁI (STATE)
+    // 3. STATE
     // ==========================================
     let studentData = { fullName: "", studentId: "", className: "" };
     let fcCurrentIndex = 0;
@@ -344,38 +367,45 @@
     let segCurrentIndex = 0;
     let segListensRemaining = { 1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3 };
     let segRecordings = {}; 
+    let segNotes = { 1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "" };
 
     let mediaRecorder = null;
     let audioChunks = [];
     let isRecording = false;
 
     // ==========================================
-    // 4. BỘ ĐỌC GIỌNG ANH - ANH TỰ NHIÊN (0.7x)
+    // 4. BỘ GIỌNG NAM ANH - ANH (UK MALE) 0.7X
     // ==========================================
-    let naturalBritishVoice = null;
+    let maleUkVoice = null;
 
-    function getBestBritishVoice() {
+    function getBestUkMaleVoice() {
       if (!('speechSynthesis' in window)) return null;
       const voices = window.speechSynthesis.getVoices();
-      
-      // Thứ tự ưu tiên giọng Anh - Anh tự nhiên cao nhất
-      let found = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && (v.name.includes('Natural') || v.name.includes('Online')));
-      if (found) return found;
+      if (!voices || voices.length === 0) return null;
 
-      found = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && v.name.includes('Google'));
-      if (found) return found;
+      // 1. Giọng nam Anh - Anh chuẩn Natural / Online (Edge: Ryan, etc.)
+      let voice = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && 
+        (v.name.includes('Ryan') || v.name.includes('Oliver') || v.name.includes('George') || (v.name.toLowerCase().includes('male') && !v.name.toLowerCase().includes('female'))));
+      if (voice) return voice;
 
-      found = voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB');
-      if (found) return found;
+      // 2. Google UK English Male
+      voice = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && v.name.includes('Male'));
+      if (voice) return voice;
 
-      found = voices.find(v => v.name.includes('UK') || v.name.includes('United Kingdom') || v.name.includes('British'));
-      if (found) return found;
+      // 3. Bất kỳ giọng en-GB nào (nếu máy không phân biệt được tên)
+      voice = voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB');
+      if (voice) return voice;
 
-      return voices.find(v => v.lang.startsWith('en')) || null;
+      // 4. Giọng UK bất kỳ
+      voice = voices.find(v => v.name.includes('UK') || v.name.includes('United Kingdom'));
+      if (voice) return voice;
+
+      // 5. Dự phòng giọng tiếng Anh
+      return voices.find(v => v.lang.startsWith('en')) || voices[0];
     }
 
     function initVoices() {
-      naturalBritishVoice = getBestBritishVoice();
+      maleUkVoice = getBestUkMaleVoice();
     }
 
     if ('speechSynthesis' in window) {
@@ -383,30 +413,44 @@
       initVoices();
     }
 
+    // Đảm bảo không bị nuốt âm thanh do autoplay policy
     function speakText(text, onEndCallback) {
       if (!('speechSynthesis' in window)) {
-        alert("Trình duyệt không hỗ trợ Web Speech API. Hãy sử dụng Google Chrome hoặc Microsoft Edge.");
+        alert("Trình duyệt không hỗ trợ Web Speech API. Vui lòng mở bằng Chrome hoặc Microsoft Edge.");
         if (onEndCallback) onEndCallback();
         return;
       }
 
+      // Kích hoạt lại audio engine nếu đang bị suspend trên trình duyệt
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+      }
       window.speechSynthesis.cancel();
-      if (!naturalBritishVoice) initVoices();
+
+      if (!maleUkVoice) {
+        initVoices();
+      }
 
       const utterance = new SpeechSynthesisUtterance(text);
-      if (naturalBritishVoice) utterance.voice = naturalBritishVoice;
+      if (maleUkVoice) {
+        utterance.voice = maleUkVoice;
+      }
       utterance.lang = 'en-GB';
-      utterance.rate = 0.7; // TỐC ĐỘ 0.7x
-      utterance.pitch = 1.0;
+      utterance.rate = 0.7; // TỐC ĐỘ 0.7x CHUẨN
+      utterance.pitch = 0.95; // Hạ nhẹ tone để đảm bảo chất giọng nam trầm ấm
 
       utterance.onend = () => { if (onEndCallback) onEndCallback(); };
-      utterance.onerror = () => { if (onEndCallback) onEndCallback(); };
+      utterance.onerror = (e) => {
+        console.error("Lỗi phát âm:", e);
+        if (onEndCallback) onEndCallback();
+      };
 
+      // Đưa vào hàng đợi phát âm
       window.speechSynthesis.speak(utterance);
     }
 
     // ==========================================
-    // 5. KHỞI TẠO VÀ BẮT SỰ KIỆN GIAO DIỆN
+    // 5. EVENT LISTENERS
     // ==========================================
     document.addEventListener("DOMContentLoaded", () => {
       lucide.createIcons();
@@ -418,6 +462,12 @@
         studentData.studentId = document.getElementById("studentId").value.trim();
         studentData.className = document.getElementById("className").value.trim();
 
+        // Kích hoạt voice engine ngay khi có tương tác đầu tiên của người dùng
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.resume();
+          initVoices();
+        }
+
         document.getElementById("studentInfoSection").classList.add("hidden");
         document.getElementById("learningContent").classList.remove("hidden");
         document.getElementById("userBadge").classList.remove("hidden");
@@ -427,7 +477,7 @@
         renderSegment();
       });
 
-      // Lật thẻ Flashcard
+      // Lật Flashcard
       const fcCard = document.getElementById("flashcard");
       fcCard.addEventListener("click", (e) => {
         if (e.target.closest("#fcSpeakBtn")) return;
@@ -435,13 +485,13 @@
         fcCard.classList.toggle("rotate-y-180", fcFlipped);
       });
 
-      // Nút phát âm Flashcard
+      // Phát âm Flashcard
       document.getElementById("fcSpeakBtn").addEventListener("click", (e) => {
         e.stopPropagation();
         speakText(VOCABULARY[fcCurrentIndex].term);
       });
 
-      // Nút chuyển từ Flashcard
+      // Điều hướng Flashcard
       document.getElementById("fcPrevBtn").addEventListener("click", () => {
         if (fcCurrentIndex > 0) {
           fcCurrentIndex--;
@@ -470,7 +520,13 @@
         checkUnlockCondition();
       });
 
-      // Nút chuyển phân đoạn bài nghe
+      // Lưu Take Notes khi người học nhập liệu
+      document.getElementById("takeNotesArea").addEventListener("input", (e) => {
+        const curSeg = SEGMENTS[segCurrentIndex];
+        segNotes[curSeg.id] = e.target.value;
+      });
+
+      // Điều hướng phân đoạn bài nghe
       document.getElementById("segPrevBtn").addEventListener("click", () => {
         if (segCurrentIndex > 0) {
           segCurrentIndex--;
@@ -490,22 +546,24 @@
       playBtn.addEventListener("click", () => {
         const seg = SEGMENTS[segCurrentIndex];
         if (segListensRemaining[seg.id] <= 0) {
-          alert("Bạn đã nghe tối đa 3 lần cho đoạn này!");
+          alert("Bạn đã nghe tối đa 3 lần cho phân đoạn này!");
           return;
         }
 
         playBtn.disabled = true;
-        document.getElementById("ttsStatus").textContent = "Đang phát giọng đọc Anh - Anh (0.7x)...";
+        document.getElementById("ttsStatus").textContent = "Đang phát giọng Nam UK (0.7x)...";
+
+        // Trừ lượt nghe ngay khi bắt đầu phát
+        segListensRemaining[seg.id]--;
+        renderSegmentListeningStatus();
 
         speakText(seg.text, () => {
-          segListensRemaining[seg.id]--;
-          playBtn.disabled = false;
+          playBtn.disabled = (segListensRemaining[seg.id] <= 0);
           document.getElementById("ttsStatus").textContent = "";
-          renderSegmentListeningStatus();
         });
       });
 
-      // Thiết lập bộ thu âm bài dịch
+      // Thiết lập MediaRecorder
       setupAudioRecording();
 
       // Nộp bài
@@ -513,7 +571,7 @@
     });
 
     // ==========================================
-    // 6. XỬ LÝ RENDER FLASHCARD
+    // 6. XỬ LÝ FLASHCARD
     // ==========================================
     function renderFlashcard() {
       const cur = VOCABULARY[fcCurrentIndex];
@@ -561,13 +619,15 @@
     }
 
     // ==========================================
-    // 7. XỬ LÝ RENDER BÀI NGHE & BẢN DỊCH
+    // 7. XỬ LÝ PHẦN BÀI NGHE (ẨN SCRIPT)
     // ==========================================
     function renderSegment() {
       const curSeg = SEGMENTS[segCurrentIndex];
       document.getElementById("currentSegNum").textContent = curSeg.id;
       document.getElementById("segBadge").textContent = curSeg.id;
-      document.getElementById("segmentText").textContent = curSeg.text;
+
+      // Tải lại nội dung ghi chú tương ứng của đoạn này
+      document.getElementById("takeNotesArea").value = segNotes[curSeg.id] || "";
 
       document.getElementById("segPrevBtn").disabled = (segCurrentIndex === 0);
       document.getElementById("segNextBtn").disabled = (segCurrentIndex === SEGMENTS.length - 1);
@@ -640,7 +700,7 @@
             indicator.classList.remove("hidden");
             indicator.classList.add("flex");
           } catch (err) {
-            alert("Trình duyệt không được cấp quyền Microphone! Vui lòng cho phép truy cập micro để làm bài dịch.");
+            alert("Trình duyệt không thể kết nối Micro. Hãy kiểm tra và cấp quyền Microphone.");
           }
         } else {
           mediaRecorder.stop();
@@ -655,7 +715,7 @@
     }
 
     // ==========================================
-    // 9. NỘP KẾT QUẢ VỀ GOOGLE SHEETS
+    // 9. NỘP BÀI VỀ GOOGLE SHEETS
     // ==========================================
     async function submitResultsToGoogleSheets() {
       const submitStatus = document.getElementById("submitStatus");
